@@ -1,0 +1,18 @@
+<%- include('partials/header'); -%>
+
+<form action="" method="POST" enctype="multipart/form-data">
+  <div class="mb-4">
+    <label class="form-label fw-bold" for="image-input">Image to hide message in</label>
+    <input type="file" name="image" id="image-input" accept="image/png, image/jpg" class="form-control" required />
+  </div>
+
+  <textarea name="message" id="editor" required></textarea>
+
+  <button class="btn btn-primary w-100 my-4">Submit</button>
+</form>
+
+<script type="text/javascript" defer> 
+  window.onload = () => new FroalaEditor('#editor');
+</script>
+
+<%- include('partials/footer'); -%>
