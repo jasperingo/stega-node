@@ -15,11 +15,11 @@ hodRoute.get('/hod', (req, res) => {
 
 hodRoute.post('/hod', upload.single('image'), async (req, res) => {
   if (!req.body.key|| ! req.file) {
-    return res.render('error', { message: 'Error: Image and secret key fields are compulsory.' });
+    return res.render('error', { message: 'Error: Image and secret key fields are compulsory.', homePage: false, hodPage: false });
   }
 
   if (process.env.SECRET_KEY !== req.body.key) {
-    return res.render('error', { message: 'Error: Secret key is incorrect.' });
+    return res.render('error', { message: 'Error: Secret key is incorrect.', homePage: false, hodPage: false });
   }
 
   const ext = path.extname(req.file?.originalname ?? '');

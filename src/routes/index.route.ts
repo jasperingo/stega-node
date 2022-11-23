@@ -14,7 +14,7 @@ indexRoute.get('/', (req, res) => {
 indexRoute.post('/', upload.single('image'), (req, res) => {
 
   if (!req.body.message || ! req.file) {
-    return res.render('error', { message: 'Error: Image and message fields are compulsory.' });
+    return res.render('error', { message: 'Error: Image and message fields are compulsory.', homePage: false, hodPage: false });
   }
 
   const ext = path.extname(req.file?.originalname ?? '');
